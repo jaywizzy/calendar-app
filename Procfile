@@ -1,1 +1,1 @@
-web: gunicorn cal-app.wsgi --log-file -
+web: gunicorn calendar-app-8cb4d11eb616aeae9fe8e1a58d1dc33c1e134bf0.wsgi --log-file -
