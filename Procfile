@@ -1,1 +1,1 @@
-icorn calendarapp.wsgi --log-file -
+web: gunicorn calendarapp.wsgi --log-file -
