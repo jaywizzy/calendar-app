@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Entry
+from .forms import EntryForm
 # Create your views here.
 
 def home(request):
@@ -9,3 +10,18 @@ def home(request):
 def details(request, id):
     entry = Entry.objects.get(id=id)
     return render(request, 'details.html', {'entry': entry})
+
+def add_entry(request):
+    if request.method == 'POST':
+        form = EntryForm(request.POST or None)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            date = form.cleaned_data['date']
+            description = form.cleaned_data['description']
+            Entry.objects.create(
+                name=name, date=date, description=description
+            ).save
+            return redirect('home')
+    else:
+        form = EntryForm()
+    return render(request, 'entry_form.html', {'form': form})
