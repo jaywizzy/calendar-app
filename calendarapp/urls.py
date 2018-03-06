@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app.views import *
+from calendarapp import settings
 urlpatterns = [
     path('', home, name='home'),
     path('details/<int:id>', details, name='details'),
     path('admin/', admin.site.urls),
 ]
+
+# urlpatterns = ['',
+#         (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+# ]
