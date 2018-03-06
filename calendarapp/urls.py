@@ -21,8 +21,9 @@ urlpatterns = [
     path('', home, name='home'),
     path('details/<int:id>', details, name='details'),
     path('admin/', admin.site.urls),
+    path('^$', direct_to_template, {'template' : 'index.html'}),
 ]
 
-urlpatterns = ('',
-        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-)
+# urlpatterns = ('',
+#         (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+# )
