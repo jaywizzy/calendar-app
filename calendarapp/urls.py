@@ -20,6 +20,8 @@ from calendarapp import settings
 urlpatterns = [
     path('', home, name='home'),
     path('details/<int:id>', details, name='details'),
+    path('create_entry', create, name='create'),
+    path('delete_entry/<int:pk>', delete, name='delete'),
     path('admin/', admin.site.urls),
 ]
 

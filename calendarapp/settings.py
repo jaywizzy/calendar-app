@@ -23,12 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-# SECRET_KEY = 'jdbfgbj'
+# SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'jdbfgbj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
+# DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'cal-app.herokuapp.com']
 
@@ -82,14 +82,14 @@ WSGI_APPLICATION = 'calendarapp.wsgi.application'
 
 
 
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}'''
+}
 
-DATABASES = { 'default': dj_database_url.config(default=config('DATABASE_URL')) }
+# DATABASES = { 'default': dj_database_url.config(default=config('DATABASE_URL')) }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -130,9 +130,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIR = (
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
-)
+]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
