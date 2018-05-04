@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container jumbotron">
+  <h3>{{ entry.name }}</h3>
+  <button type="" onclick="window.location='{% url 'home' %}'" class="btn bnt-info"> back</button>
+  <hr>
+  <h5>{{ entry.date }}</h5>
+  <p>{{ entry.description }}</p>
+</div>
+{% endblock %}

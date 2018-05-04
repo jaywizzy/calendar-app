@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container form-group">
+	<br>
+	<div class="row">
+		<div class="col-lg-4">
+			<h3> ADD A NEW ENTRY</h3>
+		</div>
+		<div class="col-lg-8">
+			<button type="" onclick="window.location='{% url 'home' %}'" class="btn btn-warning"> Back</button>
+		</div>
+	</div>
+	<hr>
+
+	<form method="post" novalidate=""> {% csrf_token %}
+		
+		{% for field in form %}
+			{{ field.errors }}
+			<label>{{ field.label }}</label>
+			<input type="{{ field.name }}" name="{{ field.name }}" class="form-control">
+		{% endfor %}
+		<br>
+			<button type="submit" class="btn btn-success"> Add Entry</button>
+	</form>
+</div>
+
+{% endblock %}
