@@ -30,6 +30,8 @@ SECRET_KEY = 'mprnl@6al88sjcr=1cnu5a6lmx6#%!qu&dch+3#lquyj(aj#5c123'
 # DEBUG = config('DEBUG', default=False, cast=bool)
 DEBUG = True
 
+# SECURITY WARNING: don't run with debug turned on in production!
+
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 DEFAULT_DBURL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
