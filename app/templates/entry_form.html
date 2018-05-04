@@ -5,6 +5,11 @@
     <h2> Add A new Entry</h2>
     <hr>
         <form action="" method="POST">{% csrf_token %}
+            {% if entry %}
+                   <h1> Edit {{ entry.description }} </h1>
+                {% else %}
+                    <h1>New Entry</h1>
+            {% endif %}
             {% for field in form %}
             <label> {{ field.label }} </label>
                 <input name="{{ field.name }}" type="{{field.name}}" class="form-control">

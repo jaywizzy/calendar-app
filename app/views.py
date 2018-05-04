@@ -26,6 +26,16 @@ def add_entry(request):
         form = EntryForm()
     return render(request, 'entry_form.html', {'form': form})
 
+def edit_entry(request, id):
+    entry = get_object_or_404(Entry, id=id)
+    form = EntryForm(request.POST or None, instance = entry)
+    if form.is_valid():
+        form.save()
+        return redirect('home')
+    else:
+        form = EntryForm()
+    return render(request, 'entry_form.html', {'form': form, 'entry':entry})
+
 def delete_entry(request, id):
     entry = get_object_or_404(Entry, id=id)
     if request.method == 'POST':

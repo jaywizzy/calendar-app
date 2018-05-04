@@ -4,6 +4,7 @@
 <div class="container jumbotron">
   <h3>{{ entry.name }}</h3>
   <button type="" onclick="window.location='{% url 'home' %}'" class="btn bnt-info"> back</button>
+  <button type="" onclick="window.location='{% url 'edit_entry' entry.id %}'" class="btn bnt-info"> edit</button>
   <hr>
   <h5>{{ entry.date }}</h5>
   <p>{{ entry.description }}</p>

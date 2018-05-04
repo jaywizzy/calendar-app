@@ -19,7 +19,8 @@ from app.views import *
 urlpatterns = [
     path('', home, name='home'),
     path('details/<int:id>', details, name='details'),
-    path('entry/add', add_entry, name='add_entry'),
-    path('delete/<int:id>', delete_entry, name='delete_entry'),
+    path('add/entry', add_entry, name='add_entry'),
+    path('edit/entry/<int:id>', edit_entry, name='edit_entry'),
+    path('delete/entry/<int:id>', delete_entry, name='delete_entry'),
     path('admin/', admin.site.urls),
 ]
