@@ -2,10 +2,11 @@
 {% load widget_tweaks %}
 {% block content %}
 <div class="container form-group">
+    <h2>Edit Entry</h2>
     <hr>
         <form action="" method="POST">{% csrf_token %}
             {% if entry %}
-                   <h1> Edit {{ entry.description }} </h1>
+                   <h4> Edit {{ entry.description }} </h4>
             {% endif %}
             {% for field in form %}
             <label> {{ field.label }} </label>
