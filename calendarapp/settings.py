@@ -23,12 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-# SECRET_KEY = 'mprnl@6al88sjcr=1cnu5a6lmx6#%!qu&dch+3#lquyj(aj#5c123'
+# SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'mprnl@6al88sjcr=1cnu5a6lmx6#%!qu&dch+3#lquyj(aj#5c123'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
-# DEBUG = True
+# DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'chat',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -137,3 +139,6 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+#channels configuration
+ASGI_APPLICATION = "calendarapp.routing.application"

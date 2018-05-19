@@ -2,21 +2,29 @@
 
 {% block content %}
 <div class="container form-group">
+    {% if not entry %}
     <h2> Add A new Entry</h2>
+    {% else %}
+    <h1> Edit {{ entry.description }} </h1>
+        <h2> Add A new Entry</h2>
+
+    {% endif %}
     <hr>
-        <form action="" method="POST">{% csrf_token %}
-            {% if entry %}
-                   <h1> Edit {{ entry.description }} </h1>
-                {% else %}
-                    <h1>New Entry</h1>
+        <form action="" method="post">{% csrf_token %}
+            {% if not entry %}
+                <h1>New Entry</h1>
             {% endif %}
             {% for field in form %}
             <label> {{ field.label }} </label>
                 <input name="{{ field.name }}" type="{{field.name}}" class="form-control">
             {% endfor %}
-            <br>
+            <br>    
+
                 <button type="submit" class="btn btn-primary">Add Entry</button>
         </form>
+        {% if  entry %}
+            <a href="{% url 'delete_entry' entry.id %}"> Delete</a>
+        {% endif %}
 </div>
 
     

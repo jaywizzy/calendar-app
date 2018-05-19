@@ -28,14 +28,23 @@ def add_entry(request):
 
 def edit_entry(request, id):
     entry = get_object_or_404(Entry, id=id)
-    form = EntryForm(request.POST or None, instance = entry)
-    if form.is_valid():
-        form.save()
-        return redirect('home')
+    if request.method == 'POST':
+        form = EntryForm(request.POST or None, instance = entry)
+        if form.is_valid():                    
+            form.save()
+            return redirect('home')
     else:
-        form = EntryForm()
-    return render(request, 'entry_form.html', {'form': form, 'entry':entry})
+        form = EntryForm(instance=entry)
+    return render(request, 'edit.html', {'form': form, 'entry':entry})
 
+    # product = Product.objects.get(id=id)
+    # form = ProductForm(request.POST or None, instance=product)
+    # if form.is_valid():
+    #     form.save()
+    #     return redirect('products_list')
+
+    # return render(request, 'products_form.html', {'form': form, 'product': product})
+    
 def delete_entry(request, id):
     entry = get_object_or_404(Entry, id=id)
     if request.method == 'POST':
