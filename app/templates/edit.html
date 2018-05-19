@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load widget_tweaks %}
 {% block content %}
 <div class="container form-group">
     <hr>
@@ -9,11 +9,11 @@
             {% endif %}
             {% for field in form %}
             <label> {{ field.label }} </label>
-            {{field }}
-                <!-- <input name="{{ field.name }}" type="{{field.name}}" class="form-control" value=""> -->
+            {{ field | add_class:'form-control' }}
+                <!-- <input name="{{ field.name }}" type="{{field.name}}" class="form-control"> -->
             {% endfor %}
             <br>
-                <button type="submit" class="btn btn-primary">Add Entry</button>
+                <button type="submit" class="btn btn-primary">Done</button>
         </form>
 </div>
 
